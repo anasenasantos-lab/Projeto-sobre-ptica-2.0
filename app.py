@@ -3,7 +3,7 @@ import os
 
 app = Flask(__name__)
 
-# Rota principal: Lê o arquivo index.html que está solto na mesma pasta
+# Rota principal (Home): Lê o arquivo index.html que está solto na mesma pasta
 @app.route('/')
 def home():
     with open('index.html', 'r', encoding='utf-8') as f:
@@ -22,7 +22,12 @@ def servir_video():
     return send_from_directory(pasta_atual, 'video-meu.mp4', mimetype='video/mp4')
 
 if __name__ == '__main__':
-    print("\n Servidor Iniciado com Sucesso no Tablet!")
-    print(" Clique no botão verde 'Open in Browser' no canto inferior.\n")
-    app.run(host='0.0.0.0', port=5000, debug=True)
-
+    # Configuração de porta dinâmica (obrigatória para servidores como o Render)
+    # Se o Render não definir uma porta, o sistema usa a porta padrão 5000 do Codespaces
+    porta = int(os.environ.get("PORT", 5000))
+    
+    print(f"\n Servidor Iniciado com Sucesso!")
+    print(f" Rodando na porta: {porta}")
+    print(" Pronto para funcionar no Codespaces ou no Render.\n")
+    
+    app.run(host='0.0.0.0', port=porta, debug=True)
