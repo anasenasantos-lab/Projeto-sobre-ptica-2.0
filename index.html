@@ -4,10 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Instrumentos Ópticos Avançados</title>
-  <link rel="stylesheet" href="/style.css" />
+  <!-- O HTML se conecta com o seu arquivo de estilo style.css -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
+  <!-- 1. Cabeçalho Principal -->
   <header class="topo-site">
     <h1>Explorando o Mundo por Outras Lentes</h1>
     <p class="subtitulo">A ciência da lupa, do microscópio e do telescópio</p>
@@ -15,7 +17,7 @@
 
   <main class="container">
     
-    <!-- Cards dos Equipamentos -->
+    <!-- 2, 3 e 4. Cards dos Equipamentos Principais -->
     <section class="grid-equipamentos">
       
       <article class="card">
@@ -44,14 +46,30 @@
 
     </section>
 
-    <!-- Seção de Glossário Técnico e Vídeo Local -->
+    <!-- 5. SÉTIMA PARTE: Interpretações de Imagens Ópticas -->
+    <h2 class="titulo-secao">Interpretações de Imagens</h2>
+    <section class="grid-interpretacoes">
+      <article class="card-mini">
+        <img src="https://unsplash.com" alt="Células ao microscópio">
+        <h4>Visão Microbiana</h4>
+        <p>Interpretação detalhada de estruturas celulares e bactérias através da ampliação obtida por lentes compostas de laboratório.</p>
+      </article>
+      
+      <article class="card-mini">
+        <img src="https://unsplash.com" alt="Galáxia vista por telescópio">
+        <h4>Visão Macroscópica</h4>
+        <p>Como lentes e espelhos curvos capturam e organizam a luz fraca vinda do espaço profundo para formar constelações nítidas.</p>
+      </article>
+    </section>
+
+    <!-- 6. Glossário Técnico e Vídeo Conectado com o Repositório -->
     <section class="secao-info">
       
       <div class="bloco-glossario">
         <h2>Glossário Técnico</h2>
         <dl>
           <dt>Fotônica</dt>
-          <dd>A área da ciência dedicada ao estudo, geração, emissão, transmissão e processamento da luz e de seus fótons.</dd>
+          <dd>A área da ciência dedicada ao estudo, geração, emissão, transmissão e processamento da luz e de suas partículas fundamentais, os fótons.</dd>
 
           <dt>Estereoscópico</dt>
           <dd>Sistema de lentes duplo ou técnica de captura que gera uma ilusão de profundidade tridimensional, simulando a visão binocular humana.</dd>
@@ -60,21 +78,24 @@
 
       <div class="bloco-video">
         <h2>Demonstração Prática</h2>
-        <!-- Player nativo conectado ao servidor Python que lê o seu vídeo -->
+        <!-- Player nativo conectado ao seu repositório de vídeo na internet -->
         <video controls style="width: 100%; border-radius: 6px; border: 1px solid #1e3c72; background-color: #000;">
-          <source src="/video-meu.mp4" type="video/mp4" />
+          <!-- APAGUE O LINK ABAIXO E COLOQUE O LINK QUE O RENDER TE DEU DO SEU REPOSITÓRIO DE VÍDEO -->
+          <source src="COLE_AQUI_O_LINK_DO_RENDER_DO_SEU_VIDEO/video-meu.mp4" type="video/mp4" />
           Seu navegador não suporta vídeos nativos.
         </video>
-        <p>Apresentação experimental dos princípios de refração em laboratório.</p>
+        <p>Apresentação experimental dos princípios de refração e comportamento da luz.</p>
       </div>
 
     </section>
   </main>
 
+  <!-- 7. Rodapé Formal -->
   <footer>
     <p>© 2026 — Plataforma Óptica Estruturada. Desenvolvido com Python, HTML e CSS.</p>
   </footer>
 
 </body>
 </html>
+
 
