@@ -1,1 +1,35 @@
+from flask import Flask, send_from_directory, make_response
+import os
+
+app = Flask(__name__)
+
+# Rota principal para verificar se o repositório de vídeo está online
+@app.route('/')
+def status():
+    return {
+        "status": "online",
+        "mensagem": "Repositorio de videos pronto para uso.",
+        "video_disponivel": "/video-meu.mp4"
+    }
+
+# Rota que entrega o vídeo diretamente para o seu site principal
+@app.route('/video-meu.mp4')
+def servir_video():
+    pasta_atual = os.path.dirname(os.path.abspath(__file__))
+    caminho_video = os.path.join(pasta_atual, 'video-meu.mp4')
+    
+    # Verifica se o arquivo de vídeo realmente foi arrastado para a pasta
+    if not os.path.exists(caminho_video):
+        return {"erro": "O arquivo 'video-meu.mp4' nao foi encontrado no repositorio."}, 404
+        
+    resposta = make_response(send_from_directory(pasta_atual, 'video-meu.mp4', mimetype='video/mp4'))
+    
+    # Configuração importante que permite que o seu outro site puxe o vídeo sem bloqueios (CORS)
+    resposta.headers['Access-Control-Allow-Origin'] = '*'
+    return resposta
+
+if __name__ == '__main__':
+    # Configuração de porta para rodar perfeitamente no Render ou localmente
+    porta = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=porta)
 
